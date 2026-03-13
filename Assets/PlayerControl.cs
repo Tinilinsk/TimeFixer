@@ -17,7 +17,6 @@ public class PlayerControl : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        coinText.text = "Coins: ";
     }
 
     // Update is called once per frame
@@ -72,6 +71,18 @@ public class PlayerControl : MonoBehaviour
         {
             collision.gameObject.SetActive(false);
             coinCounter += 1;
+            coinText.text = "Coins: " + coinCounter;
+        }
+        else if (collision.CompareTag("SilverCoin"))
+        {
+            collision.gameObject.SetActive(false);
+            coinCounter += 2;
+            coinText.text = "Coins: " + coinCounter;
+        }
+        else if (collision.CompareTag("GoldCoin"))
+        {
+            collision.gameObject.SetActive(false);
+            coinCounter += 3;
             coinText.text = "Coins: " + coinCounter;
         }
     }
