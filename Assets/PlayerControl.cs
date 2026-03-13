@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -5,12 +6,17 @@ public class PlayerControl : MonoBehaviour
 {
     public float movSpeed;
     float speedX, speedY;
+
+    private int coinCounter = 0;
+    public TMP_Text coinText;
+    
+
     Rigidbody2D rb;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();    
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -57,5 +63,27 @@ public class PlayerControl : MonoBehaviour
         }
 
         rb.linearVelocity = new Vector2 (speedX, speedY);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Coin"))
+        {
+            collision.gameObject.SetActive(false);
+            coinCounter += 1;
+            coinText.text = "Coins: " + coinCounter;
+        }
+        else if (collision.CompareTag("SilverCoin"))
+        {
+            collision.gameObject.SetActive(false);
+            coinCounter += 2;
+            coinText.text = "Coins: " + coinCounter;
+        }
+        else if (collision.CompareTag("GoldCoin"))
+        {
+            collision.gameObject.SetActive(false);
+            coinCounter += 3;
+            coinText.text = "Coins: " + coinCounter;
+        }
     }
 }
