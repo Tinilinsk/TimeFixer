@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -11,7 +12,9 @@ public class PlayerControl : MonoBehaviour
 
     private int coinCounter = 0;
     public TMP_Text coinText;
-    
+
+    private bool FirstGearPick = false;
+    private bool SecondGearPick = false;
 
     Rigidbody2D rb;
 
@@ -24,12 +27,24 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if ((FirstGearPick || SecondGearPick) && Keyboard.current.eKey.isPressed)
+        {
+            minigame();
+        }
         Movement();
+    }
+
+    private void minigame()
+    {
+        coinCounter++;
+        coinText.text = "Coins: " + coinCounter;
+        FirstGearPick = false;
+        SecondGearPick = false;
     }
 
     private void Movement()
     {
-        if (Keyboard.current.dKey.isPressed && Keyboard.current.aKey.isPressed)
+        if (Keyboard.current.dKey.isPressed && Keyboard.current.eKey.wasPressedThisFrame)
         {
             speedX = 0;
         }
@@ -99,6 +114,29 @@ public class PlayerControl : MonoBehaviour
             collision.gameObject.SetActive(false);
             coinCounter += 20;
             coinText.text = "Coins: " + coinCounter;
+        }
+        
+        
+        if (collision.CompareTag("Gear1"))
+        {
+            FirstGearPick = true;
+        }
+
+        if (collision.CompareTag("Gear2"))
+        {
+            SecondGearPick = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Gear1"))
+        {
+            FirstGearPick = false;
+        }
+        if (collision.CompareTag("Gear2"))
+        {
+            SecondGearPick = false;
         }
     }
 }

@@ -7,6 +7,8 @@ TagManager:
   - Coin
   - GoldCoin
   - SilverCoin
+  - Gear1
+  - Gear2
   layers:
   - Default
   - TransparentFX
