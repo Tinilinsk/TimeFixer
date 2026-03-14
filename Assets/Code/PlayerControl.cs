@@ -1,3 +1,5 @@
+using JetBrains.Annotations;
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -6,12 +8,18 @@ public class PlayerControl : MonoBehaviour
 {
     public float movSpeed;
     float speedX, speedY;
+    public const int d = 0;
 
     [SerializeField] private Animator _animator;
 
     private int coinCounter = 0;
     public TMP_Text coinText;
-    
+    public Canvas Canvas;
+
+    public int lives;
+
+    private bool FirstGearPick = false;
+    private bool SecondGearPick = false;
 
     Rigidbody2D rb;
 
@@ -19,17 +27,30 @@ public class PlayerControl : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        Canvas.gameObject.SetActive(false);
+        lives = Constants.LIVES;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if ((FirstGearPick || SecondGearPick) && Keyboard.current.eKey.isPressed)
+        {
+            minigame();
+        }
         Movement();
+    }
+
+    private void minigame()
+    {
+        Canvas.gameObject.SetActive(true);
+        FirstGearPick = false;
+        SecondGearPick = false;
     }
 
     private void Movement()
     {
-        if (Keyboard.current.dKey.isPressed && Keyboard.current.aKey.isPressed)
+        if (Keyboard.current.dKey.isPressed && Keyboard.current.eKey.wasPressedThisFrame)
         {
             speedX = 0;
         }
@@ -80,7 +101,7 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Coin"))
         {
@@ -99,6 +120,29 @@ public class PlayerControl : MonoBehaviour
             collision.gameObject.SetActive(false);
             coinCounter += 20;
             coinText.text = "Coins: " + coinCounter;
+        }
+        
+        
+        if (collision.CompareTag("Gear1"))
+        {
+            FirstGearPick = true;
+        }
+
+        if (collision.CompareTag("Gear2"))
+        {
+            SecondGearPick = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Gear1"))
+        {
+            FirstGearPick = false;
+        }
+        if (collision.CompareTag("Gear2"))
+        {
+            SecondGearPick = false;
         }
     }
 }

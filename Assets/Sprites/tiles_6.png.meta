@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: e4d57aeb5da708040a90322b5d9e9ca0
+guid: c62641af62569954b9a6d0324e8e415c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1226492259313273041
-    second: hero_1_0
-  - first:
-      213: 986590048746028512
-    second: hero_1_1
-  - first:
-      213: 4031893526899265107
-    second: hero_1_2
-  - first:
-      213: -6863641755277767447
-    second: hero_1_3
+      213: 431435883961672894
+    second: tiles_6_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -60,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -122,11 +113,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hero_1_0
+      name: tiles_6_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 32
+        y: 672
         width: 32
         height: 32
       alignment: 0
@@ -137,18 +128,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1d8422c2630650110800000000000000
-      internalID: 1226492259313273041
+      spriteID: eb464ee86a4ccf500800000000000000
+      internalID: 431435883961672894
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hero_1_1
+      name: tiles_6_1
       rect:
         serializedVersion: 2
         x: 32
-        y: 32
+        y: 672
         width: 32
         height: 32
       alignment: 0
@@ -157,54 +148,10 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 0ed31721c6211bd00800000000000000
-      internalID: 986590048746028512
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hero_1_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 35e07030dc924f730800000000000000
-      internalID: 4031893526899265107
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hero_1_3
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9ec412f40327fb0a0800000000000000
-      internalID: -6863641755277767447
+      spriteID: 1ba5a83a4d9edf44cb0ddd7604ec8235
+      internalID: 2117859157
       vertices: []
       indices: 
       edges: []
@@ -213,7 +160,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: ba0482dac639b0b43b1298062e0366fa
+    spriteID: 91f5c25c2cad2ff44a46cea97b11422e
     internalID: 0
     vertices: []
     indices: 
@@ -225,10 +172,8 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      hero_1_0: 1226492259313273041
-      hero_1_1: 986590048746028512
-      hero_1_2: 4031893526899265107
-      hero_1_3: -6863641755277767447
+      tiles_6_0: 431435883961672894
+      tiles_6_1: 2117859157
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
