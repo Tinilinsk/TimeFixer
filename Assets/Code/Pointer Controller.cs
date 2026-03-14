@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class PointerController : MonoBehaviour
 {
+    public LivesCounter livesCounter;
+
     public Transform PointA;
     public Transform PointB;
     public RectTransform safeZone;
@@ -77,7 +79,7 @@ public class PointerController : MonoBehaviour
         }
         else
         {
-            Debug.Log("Fail!");
+            livesCounter.RemoveLife();
         }
     }
 }

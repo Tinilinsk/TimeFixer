@@ -16,6 +16,8 @@ public class PlayerControl : MonoBehaviour
     public TMP_Text coinText;
     public Canvas Canvas;
 
+    public int lives;
+
     private bool FirstGearPick = false;
     private bool SecondGearPick = false;
 
@@ -26,6 +28,7 @@ public class PlayerControl : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         Canvas.gameObject.SetActive(false);
+        lives = Constants.LIVES;
     }
 
     // Update is called once per frame
@@ -98,7 +101,7 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Coin"))
         {
