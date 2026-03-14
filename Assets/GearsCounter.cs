@@ -14,7 +14,7 @@ public class GearsCounter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(fixedGears == 3)
+        if (fixedGears == 3)
         {
             SceneManager.LoadSceneAsync("Store");
         }
