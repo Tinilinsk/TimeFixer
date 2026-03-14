@@ -32,7 +32,7 @@ public class PointerController : MonoBehaviour
         pointerTransform = GetComponent<RectTransform>();
         targetPosition = PointB.position;
         level = 1;
-        moveSpeed = 20f;
+        moveSpeed = 10f;
     }
 
     private void Game()
@@ -75,6 +75,7 @@ public class PointerController : MonoBehaviour
             else if (level == 3)
             {
                 Canvas.gameObject.SetActive(false);
+                GearsCounter.fixedGears++;
             }
         }
         else
