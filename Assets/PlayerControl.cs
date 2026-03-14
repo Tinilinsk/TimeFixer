@@ -7,6 +7,8 @@ public class PlayerControl : MonoBehaviour
     public float movSpeed;
     float speedX, speedY;
 
+    [SerializeField] private Animator _animator;
+
     private int coinCounter = 0;
     public TMP_Text coinText;
     
@@ -22,7 +24,12 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Keyboard.current.dKey.isPressed && Keyboard.current.aKey.isPressed)
+        Movement();
+    }
+
+    private void Movement()
+    {
+        if (Keyboard.current.dKey.isPressed && Keyboard.current.aKey.isPressed)
         {
             speedX = 0;
         }
@@ -62,7 +69,15 @@ public class PlayerControl : MonoBehaviour
             }
         }
 
-        rb.linearVelocity = new Vector2 (speedX, speedY);
+        rb.linearVelocity = new Vector2(speedX, speedY);
+        if (speedX == 0 && speedY == 0)
+        {
+            _animator.SetBool("IsRunning", false);
+        }
+        else
+        {
+            _animator.SetBool("IsRunning", true);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -76,13 +91,13 @@ public class PlayerControl : MonoBehaviour
         else if (collision.CompareTag("SilverCoin"))
         {
             collision.gameObject.SetActive(false);
-            coinCounter += 2;
+            coinCounter += 3;
             coinText.text = "Coins: " + coinCounter;
         }
         else if (collision.CompareTag("GoldCoin"))
         {
             collision.gameObject.SetActive(false);
-            coinCounter += 3;
+            coinCounter += 20;
             coinText.text = "Coins: " + coinCounter;
         }
     }
