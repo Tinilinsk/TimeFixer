@@ -91,13 +91,13 @@ public class PlayerControl : MonoBehaviour
         else if (collision.CompareTag("SilverCoin"))
         {
             collision.gameObject.SetActive(false);
-            coinCounter += 2;
+            coinCounter += 3;
             coinText.text = "Coins: " + coinCounter;
         }
         else if (collision.CompareTag("GoldCoin"))
         {
             collision.gameObject.SetActive(false);
-            coinCounter += 3;
+            coinCounter += 20;
             coinText.text = "Coins: " + coinCounter;
         }
     }
