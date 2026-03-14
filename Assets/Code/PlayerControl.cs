@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System;
 using TMPro;
 using UnityEngine;
@@ -7,11 +8,13 @@ public class PlayerControl : MonoBehaviour
 {
     public float movSpeed;
     float speedX, speedY;
+    public const int d = 0;
 
     [SerializeField] private Animator _animator;
 
     private int coinCounter = 0;
     public TMP_Text coinText;
+    public Canvas Canvas;
 
     private bool FirstGearPick = false;
     private bool SecondGearPick = false;
@@ -22,6 +25,7 @@ public class PlayerControl : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        Canvas.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -36,8 +40,7 @@ public class PlayerControl : MonoBehaviour
 
     private void minigame()
     {
-        coinCounter++;
-        coinText.text = "Coins: " + coinCounter;
+        Canvas.gameObject.SetActive(true);
         FirstGearPick = false;
         SecondGearPick = false;
     }
