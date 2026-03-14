@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Coin
   - GoldCoin
+  - SilverCoin
   layers:
   - Default
   - TransparentFX
